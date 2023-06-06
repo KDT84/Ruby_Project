@@ -1,2 +1,23 @@
 Flight.create(flight_no: "KD 2016", from: "Queensland", to: "Perth", departure: (Time.now + 1.month).to_s(:db), duration_in_mins: 90, arrival: (Time.now + 1.month + 90.minutes).to_s(:db))       
 Flight.where('UPPER(flight_no) = ? AND UPPER(last_name) = ?', first_name.upcase, last_name.upcase).first
+
+    # #show passengers from Queensland
+    # def show_all_passengers_from_queensland
+    #     puts "ALL PASSENGERS"
+    #     puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    #     puts "ID\t\tFIRST_NAME\tLAST_NAME"
+    #     puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+
+    #     passengers = Flight.all.filter{|flight| flight.from == 'Queensland'}.map do |flight|
+    #       flight.reservations.map do |reservation|
+    #         reservation.passenger
+    #       end
+    
+    #     end.flatten.compact
+
+    #     passengers.each do |passenger|
+    #         puts "#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}"
+    #     end
+    # end
+
+    #show flights from Melbourne

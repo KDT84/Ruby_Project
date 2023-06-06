@@ -107,47 +107,19 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.all.filter do |flight|
-            if flight.from == "Queensland"
-                puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
-            else
-                nil
-            end
+        Flight.where(from: "Queensland").each do |flight|
+          puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
     end
 
-    # #show passengers from Queensland
-    # def show_all_passengers_from_queensland
-    #     puts "ALL PASSENGERS"
-    #     puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-    #     puts "ID\t\tFIRST_NAME\tLAST_NAME"
-    #     puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-
-    #     passengers = Flight.all.filter{|flight| flight.from == 'Queensland'}.map do |flight|
-    #       flight.reservations.map do |reservation|
-    #         reservation.passenger
-    #       end
-    
-    #     end.flatten.compact
-
-    #     passengers.each do |passenger|
-    #         puts "#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}"
-    #     end
-    # end
-
-    #show flights from Melbourne
     def show_flights_from_melbourne
         puts "FLIGHTS FROM MELBOURNE"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.all.filter do |flight|
-            if flight.from == "Melbourne"
-                puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
-            else
-                nil
-            end
+        Flight.where(from: "Melbourne").each do |flight|
+            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
     end
 
@@ -159,12 +131,8 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.all.filter do |flight|
-            if flight.to == "Sydney"
-                puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
-            else
-                nil
-            end
+        Flight.where(to: "Sydney").each do |flight|
+            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
     end
 
@@ -175,12 +143,8 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.all.filter do |flight|
-            if flight.to == "Perth"
-                puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
-            else
-                nil
-            end
+        Flight.where(to: "Perth").each do |flight|
+             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
     end
 
