@@ -1,0 +1,1 @@
+Flight.create(flight_no: "KD 2016", from: "Queensland", to: "Perth", departure: (Time.now + 1.month).to_s(:db), duration_in_mins: 90, arrival: (Time.now + 1.month + 90.minutes).to_s(:db))
