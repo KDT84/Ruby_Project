@@ -13,7 +13,6 @@ This App allows you to search the following:
   - Flight reservations
   - Passengers within a certain flight
 
-
 # AUTHOR
 
 - Kathyrine Dela Torre
@@ -67,7 +66,7 @@ This App allows you to search the following:
 - bundle init (initaliaze the gemfile)
 - bundle install (install gems required)
 - ruby FlightApp (to run the program)
-- -rake console (if you want to investigate the code within the binding)
+- rake console (if you want to investigate the code within the binding)
 
 # HOW TO USE THE PROJECT
 
