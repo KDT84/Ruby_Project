@@ -1,17 +1,20 @@
 # PROJECT NAME
 
-- FLIGHT RESERVATION APP
+- FLIGHT TRACKER APP
 
 # PROJECT DESCRIPTION
 
-This App allows you to search the following:
-  - All passengers 
-  - All flights
-  - All airlines
-  - Flight from departure
-  - Flights to destination
-  - Flight reservations
-  - Passengers within a certain flight
+This App only tracks the following trips in Australia:
+-From Melbourne to Sydney or Perth, and
+-From Queensland to Sydney or Perth.
+
+This App allows you to access the following:
+- Flight reservations,
+- All flights details,
+- Passenger details,
+- Search passenger name,
+- Search flight number, and
+  
 
 # AUTHOR
 
@@ -24,8 +27,8 @@ This App allows you to search the following:
 
 # CHALLENGES and FEATURES
 
-- I used Faker Gem to populate my data. I encounteredd a weird behavior in terms of column alignment when displayed because some of the data that were added were I bit longer than expected so it occupied a big space which affected the other columns. I tried different aprroach and use tab but no luck. 
-- I would love to add more features but I don't have the luxury of time to do it.
+- For convenience, I used Faker Gem to populate my database. I didn't quite encounter difficulties while doing this project as the requirements are just basic. 
+- I would love to add more features in my free time to learn more about how it really works under the hood. 
 
 # MODELS
 
