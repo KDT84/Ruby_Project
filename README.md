@@ -1,178 +1,91 @@
-# Phase 3 Code Challenge: Restaurants
+# PROJECT NAME
 
-For this assignment, we'll be working with a restaurant review domain.
+- FLIGHT RESERVATION APP
 
-We have three models: `Restaurant`, `Review`, and `Customer`.
+# PROJECT DESCRIPTION
 
-For our purposes, a `Restaurant` has many `Review`s, a `Customer` has many
-`Review`s, and a `Review` belongs to a `Restaurant` and to a `Customer`.
+This App allows you to search the following:
+  - All passengers 
+  - All flights
+  - All airlines
+  - Flight from departure
+  - Flights to destination
+  - Flight reservations
+  - Passengers within a certain flight
 
-`Restaurant` - `Customer` is a many to many relationship.
 
-**Note**: You should draw your domain on paper or on a whiteboard _before you
-start coding_. Remember to identify a single source of truth for your data.
+# AUTHOR
 
-## Topics
+- Kathyrine Dela Torre
+  
+# TECHNOLOGIES
 
-- Active Record Migrations
-- Active Record Associations
-- Class and Instance Methods
-- Active Record Querying
+-VS Code
+-Ruby
 
-## Instructions
+# CHALLENGES and FEATURES
 
-To get started, run `bundle install` while inside of this directory.
+- I used Faker Gem to populate my data. I encounteredd a weird behavior in terms of column alignment when displayed because some of the data that were added were I bit longer than expected so it occupied a big space which affected the other columns. I tried different aprroach and use tab but no luck. 
+- I would love to add more features but I don't have the luxury of time to do it.
 
-Build out all of the methods listed in the deliverables. The methods are listed
-in a suggested order, but you can feel free to tackle the ones you think are
-easiest. Be careful: some of the later methods rely on earlier ones.
+# MODELS
 
-**Remember!** This code challenge does not have tests. You cannot run `rspec`
-and you cannot run `learn`. You'll need to create your own sample instances so
-that you can try out your code on your own. Make sure your associations and
-methods work in the console before submitting.
+- This Project is intended for school purposes only.
+  
+ - Airplane 
+  - name
+  - mode_no
 
-We've provided you with a tool that you can use to test your code. To use it,
-run `rake console` from the command line. This will start a `pry` session with
-your classes defined. You can test out the methods that you write here. You are
-also encouraged to use the `seeds.rb` file to create sample data to test your
-models and associations.
+- Flight 
+  - flight_no
+  - to
+  - from
+  - departure
+  - arrival
+  - duration
 
-Writing error-free code is more important than completing all of the
-deliverables listed - prioritize writing methods that work over writing more
-methods that don't work. You should test your code in the console as you write.
+- Passenger 
+  - first_name
+  - last_name
+  - dob
+  - sex
+  - email_address
+  - home_address
+  - mobile_no
+  - passport_no
+  
+- Reservation 
+  - airplane_id
+  - passenger_id
+  - flight_id
+  - price
 
-Similarly, messy code that works is better than clean code that doesn't. First,
-prioritize getting things working. Then, if there is time at the end, refactor
-your code to adhere to best practices.
 
-**Before you submit!** Save and run your code to verify that it works as you
-expect. If you have any methods that are not working yet, feel free to leave
-comments describing your progress.
 
-## What You Already Have
+# HOW TO INSTALL AND RUN THE PROJECT
 
-The starter code has migrations and models for the initial `Restaurant` and
-`Customer` models, and seed data for some `Restaurant`s and `Customer`s. The
-schema currently looks like this:
+- bundle init (initaliaze the gemfile)
+- bundle install (install gems required)
+- ruby FlightApp (to run the program)
+- -rake console (if you want to investigate the code within the binding)
 
-### `restaurants` Table
+# HOW TO USE THE PROJECT
 
-| Column | Type    |
-| ------ | ------- |
-| name   | String  |
-| price  | Integer |
+- Video available on youtube.
 
-### `customers` Table
+# ACKNOWLEDGEMENT
 
-| Column     | Type   |
-| ---------- | ------ |
-| first_name | String |
-| last_name  | String |
+- Frae VAldueza, Academy Xi
 
-You will need to create the migration for the `reviews` table using the
-attributes specified in the deliverables below.
+# PROJECT STATUS
 
-## Deliverables
+- Done but with basic features
 
-Write the following methods in the classes in the files provided. Feel free to
-build out any helper methods if needed.
 
-Deliverables use the notation `#` for instance methods, and `.` for class
-methods.
 
-Remember: Active Record gives your classes access to a lot of methods already!
-Keep in mind what methods Active Record gives you access to on each of your
-classes when you're approaching the deliverables below.
 
-### Migrations
 
-Before working on the rest of the deliverables, you will need to create a
-migration for the `reviews` table.
 
-- A `Review` belongs to a `Restaurant`, and a `Review` also belongs to an
-  `Customer`. In your migration, create any columns your `reviews` table will
-  need to establish these relationships.
-- The `reviews` table should also have:
-  - A `star_rating` column that stores an integer.
 
-After creating the `reviews` table using a migration, use the `seeds.rb` file to
-create instances of your `Review` class so you can test your code.
 
-**Once you've set up your `reviews` table**, work on building out the following
-deliverables.
 
-### Object Relationship Methods
-
-Use Active Record association macros and Active Record query methods where
-appropriate (i.e. `has_many`, `has_many through`, and `belongs_to`).
-
-#### Review
-
-- `Review#customer`
-  - should return the `Customer` instance for this review
-- `Review#restaurant`
-  - should return the `Restaurant` instance for this review
-
-#### Restaurant
-
-- `Restaurant#reviews`
-  - returns a collection of all the reviews for the `Restaurant`
-- `Restaurant#customers`
-  - returns a collection of all the customers who reviewed the `Restaurant`
-
-#### Customer
-
-- `Customer#reviews`
-  - should return a collection of all the reviews that the `Customer` has left
-- `Customer#restaurants`
-  - should return a collection of all the restaurants that the `Customer` has
-    reviewed
-
-Use `rake console` and check that these methods work before proceeding. For
-example, you should be able to call `Customer.first.restaurants` and see a list
-of the restaurants for the first customer in the database based on your seed
-data; and `Review.first.customer` should return the customer for the first
-review in the database.
-
-### Aggregate and Association Methods
-
-#### Customer
-
-- `Customer#full_name`
-  - returns the full name of the customer, with the first name and the last name
-    concatenated, Western style.
-- `Customer#favorite_restaurant`
-  - returns the restaurant instance that has the highest star rating from this customer
-- `Customer#add_review(restaurant, rating)`
-  - takes a `restaurant` (an instance of the `Restaurant` class) and a rating
-  - creates a new review for the restaurant with the given `restaurant_id`
-- `Customer#delete_reviews(restaurant)`
-  - takes a `restaurant` (an instance of the `Restaurant` class) and
-  - removes **all** their reviews for this restaurant
-  - you will have to delete rows from the `reviews` table to get this to work!
-
-#### Review
-
-- `Review#full_review`
-  - should return a string formatted as follows:
-
-```txt
-Review for {insert restaurant name} by {insert customer's full name}: {insert review star_rating} stars.
-```
-
-#### Restaurant
-
-- `Restaurant.fanciest`
-  - returns _one_ restaurant instance for the restaurant that has the highest
-    price
-- `Restaurant#all_reviews`
-  - should return an Array of strings with all the reviews for this restaurant
-    formatted as follows:
-
-```rb
-[
-  "Review for {insert restaurant name} by {insert customer's full name}: {insert review star_rating} stars.",
-  "Review for {insert restaurant name} by {insert customer's full name}: {insert review star_rating} stars.",
-]
-```

@@ -28,6 +28,8 @@ class FlightApp
                 show_flights_to_sydney
             elsif option == "7"
                 show_flights_to_perth
+            elsif option == "8"
+                show_all_passengers_from_queensland
             elsif option == "0"
                 puts "Thank you and enjoy your flight!"
                 break
@@ -53,6 +55,7 @@ class FlightApp
         puts "5 - Show flights from Melbourne"
         puts "6 - Show flights to Sydney"
         puts "7 - Show flights to Perth"
+        puts "8 - show_all_passengers_from_queensland"
         puts "0 - Exit"
 
         puts "\nENTER OPTION : "
@@ -63,11 +66,29 @@ class FlightApp
 
     end
 
-    def  show_all_passengers
+    # def show_all_passengers_from_queensland
+    #     puts "ALL PASSENGERS"
+    #     puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+    #     puts "ID\t\tFIRST_NAME\tLAST_NAME\tDOB\t\tSEX\t\tEMAIL_ADDRESS\t\t\tHOME_ADDRESS\t\t\t\t\t\t\t\t\tMOBILE_NO\t\t\t\tPASSPORT_NO"
+    #     puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+
+    #     passengers = Flight.all.filter{|flight| flight.from == 'Queensland'}.map do |flight|
+    #       flight.reservations.map do |reservation|
+    #         reservation.passenger
+    #       end
+    #     end.flatten.compact
+
+    #     passengers.each do |passenger|
+    #         puts "#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}\t\t#{passenger.dob}\t#{passenger.sex}\t\t#{passenger.email_address}\t\t#{passenger.home_address}\t\t\t\t\t#{passenger.mobile_no}\t\t\t\t#{passenger.passport_no}"
+    #     end
+    # end
+
+    def show_all_passengers
         puts "ALL PASSENGERS"
         puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
         puts "ID\t\tFIRST_NAME\tLAST_NAME\tDOB\t\tSEX\t\tEMAIL_ADDRESS\t\t\tHOME_ADDRESS\t\t\t\t\t\t\t\t\tMOBILE_NO\t\t\t\tPASSPORT_NO"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+
 
         Passenger.all.each do |passenger|
             puts "#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}\t\t#{passenger.dob}\t#{passenger.sex}\t\t#{passenger.email_address}\t\t#{passenger.home_address}\t\t\t\t\t#{passenger.mobile_no}\t\t\t\t#{passenger.passport_no}"
@@ -155,7 +176,7 @@ class FlightApp
                 nil
             end
         end
-    end0
+    end
 
     def get_input
         STDIN.gets.chomp
