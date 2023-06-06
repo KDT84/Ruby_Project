@@ -5,7 +5,7 @@
 # Passenger.delete_all 
 # Reservation.delete_all
 
-# 10.times do
+# 2.times do
 
 #     airplane = Airplane.create(
 #         name: ["Qantas", "Jetstar", "Virgin Australia"].sample,
@@ -24,7 +24,7 @@
 #         duration_in_mins: 80
 #     )
 
-#     20.times do
+#     10.times do
 #         passenger = Passenger.create(
 #             first_name: Faker::Name.first_name,
 #             last_name: Faker::Name.last_name,
@@ -48,4 +48,5 @@
 # end
 
 # puts "🌱 FINISHED SEEDING!!!!"
+
 
