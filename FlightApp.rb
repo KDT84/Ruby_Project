@@ -249,24 +249,24 @@ class FlightApp
         puts "\n----------------END------------------------"
     end
 
-        # show passengers from Melbourne
-        def show_all_passengers_from_melbourne
-            passengers = Flight.where(from: "Melbourne").map do |flight|
-                flight.reservations.map { |reservation| reservation.passenger }
-            end.flatten.compact
-    
-            puts "\nALL PASSENGERS FROM MELBOURNE"
-            puts "---------------------------------------------"
-            puts "ID\tFIRST_NAME\tLAST_NAME"
-            puts "---------------------------------------------"
-            passengers.each do |passenger|
-                puts "#{passenger.id}\t#{passenger.first_name}\t\t#{passenger.last_name}"
-            end
-    
-            puts "\nTOTAL PASSENGERS: #{passengers.length}"
-            puts "\n----------------END------------------------"
+    # show passengers from Melbourne
+    def show_all_passengers_from_melbourne
+        passengers = Flight.where(from: "Melbourne").map do |flight|
+            flight.reservations.map { |reservation| reservation.passenger }
+        end.flatten.compact
 
+        puts "\nALL PASSENGERS FROM MELBOURNE"
+        puts "---------------------------------------------"
+        puts "ID\tFIRST_NAME\tLAST_NAME"
+        puts "---------------------------------------------"
+        passengers.each do |passenger|
+            puts "#{passenger.id}\t#{passenger.first_name}\t\t#{passenger.last_name}"
         end
+
+        puts "\nTOTAL PASSENGERS: #{passengers.length}"
+        puts "\n----------------END------------------------"
+
+    end
     
     #chomp and strip inputs
     def get_input
