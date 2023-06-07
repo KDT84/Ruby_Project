@@ -100,7 +100,7 @@ class FlightApp
     def show_all_airplanes
         puts "ALL AIRPLANES"
         puts "-----------------------------------------------------"
-        puts "AIRLINE_ID\tAIRPLANE\t\tMODEL_NO"
+        puts "AIRLINE_ID\tAIRPLANE\tMODEL_NO"
         puts "-----------------------------------------------------"
 
         Airplane.all.each do |airplane|
@@ -116,11 +116,11 @@ class FlightApp
     def show_flights_from_queensland
         puts "FLIGHTS FROM QUEENSLAND"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
+        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         flights = Flight.where(from: "Queensland").each do |flight|
-          puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
+          puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
 
         puts "\nTOTAL FLIGHTS: #{flights.length}"
@@ -131,11 +131,11 @@ class FlightApp
     def show_flights_from_melbourne
         puts "FLIGHTS FROM MELBOURNE"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
+        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         flights = Flight.where(from: "Melbourne").each do |flight|
-            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
+            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
 
         puts "\nTOTAL FLIGHTS: #{flights.length}"
@@ -147,11 +147,11 @@ class FlightApp
     def  show_flights_to_sydney
         puts "FLIGHTS TO SYDNEY"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
+        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         flights = Flight.where(to: "Sydney").each do |flight|
-            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
+            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
 
         puts "\nTOTAL FLIGHTS: #{flights.length}"
@@ -162,11 +162,11 @@ class FlightApp
     def show_flights_to_perth
         puts "FLIGHTS TO PERTH"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
+        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         flights = Flight.where(to: "Perth").each do |flight|
-             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
+             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
 
         puts "\nTOTAL FLIGHTS: #{flights.length}"
