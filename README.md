@@ -3,7 +3,7 @@
 
 # PROJECT DESCRIPTION
 
-  This App contains records of the flights, reservations, passengers and airplanes from below routes:
+  This App contains records of all the flights, reservations, passengers and airplanes from below routes:
   -Melbourne to Sydney
   -Melbourne to Perth
   -Queensland to Sydney
