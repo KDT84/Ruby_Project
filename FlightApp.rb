@@ -13,7 +13,7 @@ class FlightApp
             elsif option == "2"
                 show_all_flights
             elsif option == "3"
-                show_all_airlines
+                show_all_airplanes
             elsif option == "4"
                 show_flights_from_queensland
             elsif option == "5"
@@ -23,8 +23,12 @@ class FlightApp
             elsif option == "7"
                 show_flights_to_perth
             elsif option == "8"
-                search_passenger
+                show_all_passengers_from_queensland
             elsif option == "9"
+                show_all_passengers_from_melbourne
+            elsif option == "10"
+                search_passenger
+            elsif option == "11"
                 search_flight
             elsif option == "0"
                 break
@@ -51,10 +55,11 @@ class FlightApp
         puts "5 - Show flights from Melbourne"
         puts "6 - Show flights to Sydney"
         puts "7 - Show flights to Perth"
-        puts "8 - Search Passenger"
-        puts "9 - Search Flight"
+        puts "8 - All passengers from Queensland"
+        puts "9 - All passengers from Melbourne"
+        puts "10 - Search Passenger Name"
+        puts "11 - Search Flight Number"
         puts "0 - Exit"
-
         print "\nENTER OPTION: "
 
         input = get_input
@@ -65,38 +70,45 @@ class FlightApp
     #search all passengers
     def show_all_passengers
         puts "ALL PASSENGERS"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+        puts "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
         puts "ID\t\tFIRST_NAME\tLAST_NAME\tDOB\t\tSEX\t\tEMAIL_ADDRESS\t\t\t\t\tHOME_ADDRESS\t\t\t\tMOBILE_NO\t\tPASSPORT_NO"
-        puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+        puts "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         Passenger.all.each do |passenger|
             puts "#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}\t\t#{passenger.dob}\t#{passenger.sex}\t\t#{passenger.email_address}\t\t#{passenger.home_address}\t\t#{passenger.mobile_no}\t\t#{passenger.passport_no}"
         end
-            
+        puts "\nTOTAL PASSENGERS: #{Flight.all.length}"
+        puts "\n------------------------------------------------------------------------------------------------------END----------------------------------------------------------------------------------------------------------"
     end
 
     #show all flights
     def show_all_flights 
         puts "ALL FLIGHTS"
-        puts "-----------------------------------------------------------------------------------------------------------------------------------------------------------"
+        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------"
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\t\tFROM\t\tDEPARTURE_TIME\t\t\tARRIVAL_TIME\t\t\tDURATION_IN_MINS"
-        puts "-----------------------------------------------------------------------------------------------------------------------------------------------------------"
+        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         Flight.all.each do |flight|
             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.from}\t\t#{flight.to}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
+        puts "\nTOTAL FLIGHTS: #{Flight.all.length}"
+        puts "\n--------------------------------------------------------------------END---------------------------------------------------------------------------------------"
+
     end
 
     #show all airlines
-    def show_all_airlines
-        puts "ALL AIRLINES"
+    def show_all_airplanes
+        puts "ALL AIRPLANES"
         puts "-----------------------------------------------------"
-        puts "AIRLINE_ID\tAIRLINE\t\tMODEL_NO"
+        puts "AIRLINE_ID\tAIRPLANE\t\tMODEL_NO"
         puts "-----------------------------------------------------"
 
         Airplane.all.each do |airplane|
             puts "#{airplane.id}\t\t#{airplane.name}\t\t#{airplane.model_no}"
         end
+
+        puts "\nTOTAL AIRPLANES: #{Airplane.all.length}"
+        puts "\n-----------------END--------------------------------"
 
     end
 
@@ -107,9 +119,13 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.where(from: "Queensland").each do |flight|
+        flights = Flight.where(from: "Queensland").each do |flight|
           puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
+
+        puts "\nTOTAL FLIGHTS: #{flights.length}"
+        puts "\n------------------------------------------------------------END------------------------------------------------------------------------------------------"
+
     end
 
     def show_flights_from_melbourne
@@ -118,9 +134,12 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.where(from: "Melbourne").each do |flight|
+        flights = Flight.where(from: "Melbourne").each do |flight|
             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
+
+        puts "\nTOTAL FLIGHTS: #{flights.length}"
+        puts "\n------------------------------------------------------------END------------------------------------------------------------------------------------------"
     end
 
 
@@ -131,9 +150,12 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.where(to: "Sydney").each do |flight|
+        flights = Flight.where(to: "Sydney").each do |flight|
             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
+
+        puts "\nTOTAL FLIGHTS: #{flights.length}"
+        puts "\n------------------------------------------------------------END------------------------------------------------------------------------------------------"
     end
 
     #show flights to Perth
@@ -143,9 +165,12 @@ class FlightApp
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
-        Flight.where(to: "Perth").each do |flight|
+        flights = Flight.where(to: "Perth").each do |flight|
              puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
+
+        puts "\nTOTAL FLIGHTS: #{flights.length}"
+        puts "\n------------------------------------------------------------END------------------------------------------------------------------------------------------"
     end
 
     #seach passenger
@@ -156,15 +181,22 @@ class FlightApp
         print "Enter Last Name: "
         last_name = get_input
 
-        puts "\nPASSENGER DETAILS"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "ID\t\tFIRST_NAME\tLAST_NAME\tDOB\t\tSEX\t\tEMAIL_ADDRESS\t\t\t\t\tHOME_ADDRESS\t\t\t\tMOBILE_NO\t\tPASSPORT_NO"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-
         passenger = search(first_name.strip, last_name.strip)
-
         if passenger 
-            puts "\n#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}\t\t#{passenger.dob}\t#{passenger.sex}\t\t#{passenger.email_address}\t\t#{passenger.home_address}\t\t#{passenger.mobile_no}\t\t#{passenger.passport_no}"
+            puts "-------------------------------------------------------------------------"
+            puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PASSENGER DETAILS>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+            puts "-------------------------------------------------------------------------"
+            puts "\nID: #{passenger.id}
+            \nFirst Name: #{passenger.first_name}
+            \nLast Name: #{passenger.last_name}
+            \nDOB: #{passenger.dob}
+            \nSex: #{passenger.sex}
+            \nEmail Address: #{passenger.email_address}
+            \nHome Address: #{passenger.home_address}
+            \nMobile No: #{passenger.mobile_no}
+            \nPassport No.: #{passenger.passport_no}"
+            puts "\n----------------------------------END-----------------------------------"
+
         else  
             puts "\nMessage: PASSENGER NOT FOUND!"
         end
@@ -180,20 +212,63 @@ class FlightApp
         print "Enter Flight Number: "
         flight_no = get_input
 
-        puts "\nFLIGHT DETAILS"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "ID\tFLIGHT_NO\tFROM\t\tTO\t\t\tDEPARTURE\t\t\tARRIVAL\t\t\tDURATION_IN_MINS"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
-
         flight = Flight.find_by(flight_no: flight_no.upcase)
         if flight
-            puts "\n#{flight.id}\t#{flight.flight_no}\t\t#{flight.from}\t#{flight.to}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t\t#{flight.duration_in_mins}"
+            puts "---------------------------------------------------------"
+            puts "<<<<<<<<<<<<<<<<<<<<FLIGHT DETAILS>>>>>>>>>>>>>>>>>>>>>>>"
+            puts "---------------------------------------------------------"
+            puts "\nID: #{flight.id}
+            \nFLIGHT NO.: #{flight.flight_no}
+            \nFROM: #{flight.from}
+            \nTO: #{flight.to}
+            \nDEPARTURE: #{flight.departure}
+            \nARRIVAL: #{flight.arrival}
+            \nDURATION IN MINS: #{flight.duration_in_mins}"
+            puts "\n-----------------------END-----------------------------"
+
         else  
             puts "\nMessage: FLIGHT NOT FOUND!"
         end
     end
 
-    #input
+    # show passengers from Queensland
+    def show_all_passengers_from_queensland
+        passengers = Flight.where(from: "Queensland").map do |flight|
+            flight.reservations.map { |reservation| reservation.passenger }
+        end.flatten.compact
+
+        puts "\nALL PASSENGERS FROM QUEENSLAND"
+        puts "---------------------------------------------"
+        puts "ID\tFIRST_NAME\tLAST_NAME"
+        puts "---------------------------------------------"
+        passengers.each do |passenger|
+            puts "#{passenger.id}\t#{passenger.first_name}\t\t#{passenger.last_name}"
+        end
+
+        puts "\nTOTAL PASSENGERS: #{passengers.length}"
+        puts "\n----------------END------------------------"
+    end
+
+        # show passengers from Melbourne
+        def show_all_passengers_from_melbourne
+            passengers = Flight.where(from: "Melbourne").map do |flight|
+                flight.reservations.map { |reservation| reservation.passenger }
+            end.flatten.compact
+    
+            puts "\nALL PASSENGERS FROM MELBOURNE"
+            puts "---------------------------------------------"
+            puts "ID\tFIRST_NAME\tLAST_NAME"
+            puts "---------------------------------------------"
+            passengers.each do |passenger|
+                puts "#{passenger.id}\t#{passenger.first_name}\t\t#{passenger.last_name}"
+            end
+    
+            puts "\nTOTAL PASSENGERS: #{passengers.length}"
+            puts "\n----------------END------------------------"
+
+        end
+    
+    #chomp and strip inputs
     def get_input
         STDIN.gets.chomp.strip
     end

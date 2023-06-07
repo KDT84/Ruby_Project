@@ -1,6 +1,6 @@
 # PROJECT NAME
 
-- FLIGHT TRACKER APP
+- AIRLINE MANAGEMENT SYSTEM APP
 
 # PROJECT DESCRIPTION
 
@@ -12,8 +12,8 @@ This App allows you to access the following:
 - Flight reservations,
 - All flights details,
 - Passenger details,
-- Search passenger name,
-- Search flight number, and
+- Search passenger name, and
+- Search flight number.
   
 
 # AUTHOR
