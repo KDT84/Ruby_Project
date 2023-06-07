@@ -43,7 +43,7 @@ class FlightApp
     def display_menu
         puts "\n"
         puts "-----------------------------------------------------"
-        puts "<<<<<<<<<<<<<<<<<<<FLIGHT RECORDS>>>>>>>>>>>>>>>>>>>>"
+        puts "<<<<<<<<<<<<<<FLIGHT MANAGEMENT SYSTEM>>>>>>>>>>>>>>>"
         puts "-----------------------------------------------------"
 
         puts "MENU:"
