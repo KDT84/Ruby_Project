@@ -84,15 +84,15 @@ class FlightApp
     #show all flights
     def show_all_flights 
         puts "ALL FLIGHTS"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------"
-        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\t\tFROM\t\tDEPARTURE_TIME\t\t\tARRIVAL_TIME\t\t\tDURATION_IN_MINS"
-        puts "---------------------------------------------------------------------------------------------------------------------------------------------------------------"
+        puts "-----------------------------------------------------------------------------------------------------------------------------------------------------------"
+        puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\tDEPARTURE_TIME\t\t\tARRIVAL_TIME\t\tDURATION_IN_MINS"
+        puts "-----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         Flight.all.each do |flight|
-            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.from}\t\t#{flight.to}\t\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
+            puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
         puts "\nTOTAL FLIGHTS: #{Flight.all.length}"
-        puts "\n--------------------------------------------------------------------END---------------------------------------------------------------------------------------"
+        puts "\n--------------------------------------------------------------------END----------------------------------------------------------------------------------"
 
     end
 
