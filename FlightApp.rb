@@ -26,16 +26,15 @@ class FlightApp
                 show_all_passengers_from_queensland
             elsif option == "9"
                 show_all_passengers_from_melbourne
-            elsif option == "10"
+            elsif option == "a"
                 search_passenger
-            elsif option == "11"
+            elsif option == "b"
                 search_flight
             elsif option == "0"
                 break
             else
                 puts "MESSAGE: option INVALID!"
             end
-            
         end 
     end
 
@@ -45,21 +44,20 @@ class FlightApp
         puts "----------------------------------------"
         puts "<<<<<<<<FLIGHT MANAGEMENT SYSTEM>>>>>>>>"
         puts "----------------------------------------"
-
         puts "MENU:"
         puts "\n"
-        puts "1 - Show all passengers"
-        puts "2 - Show all flights"
-        puts "3 - Show all airlines"
-        puts "4 - Show flights from Queensland"
-        puts "5 - Show flights from Melbourne"
-        puts "6 - Show flights to Sydney"
-        puts "7 - Show flights to Perth"
-        puts "8 - All passengers from Queensland"
-        puts "9 - All passengers from Melbourne"
-        puts "10 - Search Passenger Name"
-        puts "11 - Search Flight Number"
-        puts "0 - Exit"
+        puts "[ 1 ] - Show all passengers"
+        puts "[ 2 ] - Show all flights"
+        puts "[ 3 ] - Show all airlines"
+        puts "[ 4 ] - Show flights from Queensland"
+        puts "[ 5 ] - Show flights from Melbourne"
+        puts "[ 6 ] - Show flights to Sydney"
+        puts "[ 7 ] - Show flights to Perth"
+        puts "[ 8 ] - All passengers from Queensland"
+        puts "[ 9 ] - All passengers from Melbourne"
+        puts "[ a ] - Search Passenger Name"
+        puts "[ b ] - Search Flight Number"
+        puts "[ 0 ] - Exit"
         print "\nENTER OPTION: "
 
         input = get_input
@@ -77,6 +75,7 @@ class FlightApp
         Passenger.all.each do |passenger|
             puts "#{passenger.id}\t\t#{passenger.first_name}\t\t#{passenger.last_name}\t\t#{passenger.dob}\t#{passenger.sex}\t\t#{passenger.email_address}\t\t#{passenger.home_address}\t\t#{passenger.mobile_no}\t\t#{passenger.passport_no}"
         end
+
         puts "\nTOTAL PASSENGERS: #{Flight.all.length}"
         puts "\n------------------------------------------------------------------------------------------------------END----------------------------------------------------------------------------------------------------------"
     end
@@ -91,6 +90,7 @@ class FlightApp
         Flight.all.each do |flight|
             puts "#{flight.id}\t\t#{flight.flight_no}\t\t#{flight.to}\t\t#{flight.from}\t#{flight.departure}\t\t#{flight.arrival}\t\t#{flight.duration_in_mins}"
         end
+
         puts "\nTOTAL FLIGHTS: #{Flight.all.length}"
         puts "\n--------------------------------------------------------------------END----------------------------------------------------------------------------------"
 
@@ -259,19 +259,19 @@ class FlightApp
         puts "---------------------------------------------"
         puts "ID\tFIRST_NAME\tLAST_NAME"
         puts "---------------------------------------------"
+
         passengers.each do |passenger|
             puts "#{passenger.id}\t#{passenger.first_name}\t\t#{passenger.last_name}"
         end
 
         puts "\nTOTAL PASSENGERS: #{passengers.length}"
         puts "\n----------------END------------------------"
-
     end
     
     #chomp and strip inputs
     def get_input
         STDIN.gets.chomp.strip
     end
-end 
+end
 
 FlightApp.new

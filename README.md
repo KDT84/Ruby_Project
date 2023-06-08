@@ -61,10 +61,9 @@ This App allows you to:
   - price
 
 
-# HOW TO INSTALL AND RUN THE PROJECT
-- bundle init (initaliaze the gemfile)
+# HOW TO RUN THE PROJECT
 - bundle install (install gems required for the program)
-- ruby FlightApp (to run the program)
+- ruby FlightApp.rb (to run the program)
 - rake console (if you want to investigate the code within the binding)
 
 # HOW TO USE THE PROJECT
