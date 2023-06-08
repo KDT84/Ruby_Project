@@ -42,9 +42,9 @@ class FlightApp
     #display
     def display_menu
         puts "\n"
-        puts "-----------------------------------------------------"
-        puts "<<<<<<<<<<<<<<FLIGHT MANAGEMENT SYSTEM>>>>>>>>>>>>>>>"
-        puts "-----------------------------------------------------"
+        puts "----------------------------------------"
+        puts "<<<<<<<<FLIGHT MANAGEMENT SYSTEM>>>>>>>>"
+        puts "----------------------------------------"
 
         puts "MENU:"
         puts "\n"
