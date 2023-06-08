@@ -23,15 +23,17 @@ class FlightApp
             elsif option == "7"
                 show_flights_to_perth
             elsif option == "8"
-                show_all_passengers_from_queensland
+                all_passengers_from_queensland
             elsif option == "9"
-                show_all_passengers_from_melbourne
+                all_passengers_from_melbourne
             elsif option == "a"
-                search_passenger
+                search_passenger_name
             elsif option == "b"
                 search_flight
             elsif option == "0"
                 break
+            elsif option == "c"
+                departure
             else
                 puts "MESSAGE: option INVALID!"
             end
@@ -174,7 +176,7 @@ class FlightApp
     end
 
     #seach passenger
-    def search_passenger
+    def search_passenger_name
         print "Enter First Name: "
         first_name = get_input
 
@@ -232,7 +234,7 @@ class FlightApp
     end
 
     # show passengers from Queensland
-    def show_all_passengers_from_queensland
+    def all_passengers_from_queensland
         passengers = Flight.where(from: "Queensland").map do |flight|
             flight.reservations.map { |reservation| reservation.passenger }
         end.flatten.compact
@@ -250,7 +252,7 @@ class FlightApp
     end
 
     # show passengers from Melbourne
-    def show_all_passengers_from_melbourne
+    def all_passengers_from_melbourne
         passengers = Flight.where(from: "Melbourne").map do |flight|
             flight.reservations.map { |reservation| reservation.passenger }
         end.flatten.compact
@@ -272,6 +274,8 @@ class FlightApp
     def get_input
         STDIN.gets.chomp.strip
     end
+
 end
 
 FlightApp.new
+
