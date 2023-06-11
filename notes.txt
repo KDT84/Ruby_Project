@@ -1,3 +1,14 @@
 Flight.create(flight_no: "KD 2016", from: "Queensland", to: "Perth", departure: (Time.now + 1.month).to_s(:db), duration_in_mins: 90, arrival: (Time.now + 1.month + 90.minutes).to_s(:db))       
-Flight.where('UPPER(flight_no) = ? AND UPPER(last_name) = ?', first_name.upcase, last_name.upcase).first
 
+Reservation.create(airplane_id: airplae.id ,passenger_id: passenger.id, flight_id: flight.id, price: 480.38)
+
+Passenger.create(
+    first_name: "Kaim",
+    last_name: "Kwak",
+    dob: Time.date(1980-07-12)
+    sex: "female"
+    email_address: "jdj.gmail.com"
+    home_address: "6 Glenfern Road, Eppign NSW 2121"
+    mobile_no: "+61 156 545 472"
+    passport_no: "KZ0156185"
+)
