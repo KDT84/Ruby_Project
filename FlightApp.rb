@@ -215,18 +215,16 @@ class FlightApp
     def search_departure_date
         print "Enter departure date : "
         input = get_input
-        date = Flight.where(departure: input)
+        date = Flight.find_by(departure: input)
        
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
         puts "FLIGHT_ID\tFLIGHT_NO\tTO\t\tFROM\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
         puts "----------------------------------------------------------------------------------------------------------------------------------------------------------"
 
         if date
-            date.each do |d|
-                puts "#{d.id}\t\t#{d.flight_no}\t\t#{d.to}\t\t#{d.from}\t#{d.departure}\t\t#{d.arrival}\t\t#{d.duration_in_mins}"
-            end
+            puts "#{date.id}\t\t#{date.flight_no}\t\t#{date.to}\t\t#{date.from}\t#{date.departure}\t\t#{date.arrival}\t\t#{date.duration_in_mins}"
         else
-            puts "Message: No Date Found!"
+            puts "\nMessage: No Flight Found!"
         end
     end 
 
