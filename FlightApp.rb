@@ -165,7 +165,7 @@ class FlightApp
             \nDuration_in_mins: #{flight.duration_in_mins} "
             puts "\n----------------------------------END-----------------------------------"
         else  
-            puts "\nMessage: PASSENGER NOT FOUND!"
+            puts "\nMessage: PASSENGER DOESN'T EXIST IN OUR RECORDS!"
         end
     end
 
@@ -206,7 +206,7 @@ class FlightApp
             puts "\nTOTAL NUMBER OF PASSENGERS: #{total_passengers} "
             puts "\n-----------------------END-----------------------------"
         else  
-            puts "\nMessage: FLIGHT NOT FOUND!"
+            puts "\nMessage: NO FLIGHT RECORDS FOR THIS FLIGHT NUMBER!"
         end
     end
 
@@ -224,7 +224,7 @@ class FlightApp
         if date
             puts "#{date.id}\t\t#{date.flight_no}\t\t#{date.to}\t\t#{date.from}\t#{date.departure}\t\t#{date.arrival}\t\t#{date.duration_in_mins}"
         else
-            puts "\nMessage: No Flight Found!"
+            puts "\nMessage: NO FLIGHT RECORDS FOR THIS DATE!"
         end
     end 
 
