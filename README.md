@@ -67,7 +67,7 @@ This App allows you to:
 - rake console (if you want to investigate the code within the binding)
 
 # HOW TO USE THE PROJECT
-- Video available on youtube.
+- [Video available on youtube.](https://youtu.be/NJT5aC3k_WI)
 
 # ACKNOWLEDGEMENT
 - Frae VAldueza, Academy Xi
