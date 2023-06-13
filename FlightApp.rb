@@ -165,7 +165,7 @@ class FlightApp
             \nDuration_in_mins: #{flight.duration_in_mins} "
             puts "\n----------------------------------END-----------------------------------"
         else  
-            puts "\nMessage: PASSENGER DOESN'T EXIST IN OUR RECORDS!"
+            puts "\nMessage: NO PASSENGER EXISTS IN OUR RECORDS!"
         end
     end
 
