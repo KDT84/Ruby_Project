@@ -142,7 +142,7 @@ class FlightApp
         first_name = get_input
         print "Enter Last Name: "
         last_name = get_input
-        passenger = search(first_name.strip, last_name.strip)
+        passenger = search(first_name, last_name)
 
         if passenger 
             puts "-------------------------------------------------------------------------"
@@ -229,7 +229,7 @@ class FlightApp
     end 
 
     
-    #chomp and strip inputs
+    #chomp -and strip inputs
     def get_input
         STDIN.gets.chomp.strip
     end
