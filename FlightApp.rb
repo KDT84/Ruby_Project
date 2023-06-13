@@ -66,12 +66,6 @@ class FlightApp
         input
     end
 
-    # show_all_airplanes
-    # show_all_flights 
-    # show_all_passengers
-    # show_flights_to_sydney
-    # show_flights_to_perth
-
    #show flights to Perth
    def show_flights_to_perth
       puts "FLIGHTS TO PERTH"
