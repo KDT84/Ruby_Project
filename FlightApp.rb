@@ -203,10 +203,10 @@ class FlightApp
                 puts "- #{passenger.first_name} #{passenger.last_name}"
             end
 
-            puts "\nTOTAL NUMBER OF PASSENGERS: #{total_passengers} "
+            puts "\nTotal number of passengers: #{total_passengers} "
             puts "\n-----------------------END-----------------------------"
         else  
-            puts "\nMessage: NO FLIGHT RECORDS FOR THIS FLIGHT NUMBER!"
+            puts "\nMessage: NO FLIGHT FOUND!"
         end
     end
 
