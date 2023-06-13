@@ -189,8 +189,6 @@ class FlightApp
                 reservation.passenger
             end.flatten.compact
 
-            total_passengers = passengers.size
-
             puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
             puts "AIRLINE\t\tMODEL_NO\tFLIGHT_NO\tTO\t\tFROM\t\tFLIGHT_DEPARTURE\t\tFLIGHT_ARRIVAL\t\tDURATION_IN_MINS"
             puts "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
@@ -203,7 +201,7 @@ class FlightApp
                 puts "- #{passenger.first_name} #{passenger.last_name}"
             end
 
-            puts "\nTotal number of passengers: #{total_passengers} "
+            puts "\nTotal number of passengers: #{passengers.size} "
             puts "\n-----------------------END-----------------------------"
         else  
             puts "\nMessage: NO FLIGHT FOUND!"
